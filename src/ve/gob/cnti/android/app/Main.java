@@ -1,20 +1,29 @@
-package ve.gob.cnti.android;
+package ve.gob.cnti.android.app;
 
-import android.os.Bundle;
+import ve.gob.cnti.android.R;
+import ve.gob.cnti.android.database.DatabaseHelper;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class Main extends Activity {
+
+	public static DatabaseHelper myDataBase;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		myDataBase = new DatabaseHelper(this);
+		try {
+			myDataBase.createDataBase(this);
+		} catch (Exception e) {
+			throw new Error("Error al crear la base de datos ");
+		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}

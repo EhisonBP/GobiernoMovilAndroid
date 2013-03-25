@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ve.gob.cnti.android"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="7" />
+        android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,8 @@
         <activity
             android:name="ve.gob.cnti.android.Main"
             android:label="@string/app_name" >
+        </activity>
+        <activity android:name="ve.gob.cnti.android.app.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
