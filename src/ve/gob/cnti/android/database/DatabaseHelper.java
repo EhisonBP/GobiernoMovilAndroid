@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static String DB_NAME = "GobMovil.sqlite";
-	public static final String DB_PATH = "/data/data/ve.gob.cnti.movil.app/databases/";
+	public static final String DB_PATH = "/data/data/ve.gob.cnti.android/databases/";
 	private SQLiteDatabase database;
 	private final Context context;
 
