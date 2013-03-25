@@ -4,5 +4,6 @@
     <string name="app_name">GobiernoMovilAndroid</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="logo">Logo CNTI</string>
 
 </resources>
