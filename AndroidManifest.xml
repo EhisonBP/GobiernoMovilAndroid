@@ -14,10 +14,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="ve.gob.cnti.android.Main"
+            android:name=".app.Main"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="ve.gob.cnti.android.app.Splash" >
+        <activity android:name=".app.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
