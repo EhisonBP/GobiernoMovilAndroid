@@ -5,8 +5,8 @@
  * Gobierno Móvil es un producto de Gobierno en Línea Venezuela.
  * 
  * Copyright (C) 2013 Richard Ricciardelli. All Rights Reserved.
- * Copyright (C) 2013 Ehison Perez. All Rights Reserved.
- * Copyright (C) 2013 Gerardo Perez. All Rights Reserved.
+ * Copyright (C) 2013 Ehison Pérez. All Rights Reserved.
+ * Copyright (C) 2013 Gerardo Pérez. All Rights Reserved.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ public class Splash extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
-		StarAnimations();
+		startAnimations();
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
@@ -56,16 +56,15 @@ public class Splash extends Activity {
 	}
 
 	/**
-	 * Meodo que realiza la animacion de cada unos de los elementos que estan en
-	 * el layout de Splash.
+	 * Método que realiza la animación de cada unos de los elementos que están
+	 * en el layout de Splash.
 	 */
-	public void StarAnimations() {
+	public void startAnimations() {
 		Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha);
 		animation.reset();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.splash);
 		layout.clearAnimation();
 		layout.startAnimation(animation);
-
 		animation = AnimationUtils.loadAnimation(this, R.anim.translate);
 		animation.reset();
 		ImageView imageView = (ImageView) findViewById(R.id.logoSplash);

@@ -5,8 +5,8 @@
  * Gobierno Móvil es un producto de Gobierno en Línea Venezuela.
  * 
  * Copyright (C) 2013 Richard Ricciardelli. All Rights Reserved.
- * Copyright (C) 2013 Ehison Perez. All Rights Reserved.
- * Copyright (C) 2013 Gerardo Perez. All Rights Reserved.
+ * Copyright (C) 2013 Ehison Pérez. All Rights Reserved.
+ * Copyright (C) 2013 Gerardo Pérez. All Rights Reserved.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ public class Main extends Activity {
 	public static DatabaseHelper myDataBase;
 
 	/**
-	 * Metodo que lanza la vista principal de la Acitvidad Main
+	 * Método que lanza la vista principal de la Actividad Main
 	 * 
 	 */
 	@Override
@@ -46,10 +46,14 @@ public class Main extends Activity {
 		try {
 			myDataBase.createDataBase(this);
 		} catch (Exception e) {
+			// TODO Se debe internacionalizar el error.
 			throw new Error("Error al crear la base de datos ");
 		}
 	}
 
+	/**
+	 * Crea el menú de opciones
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);

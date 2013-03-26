@@ -5,8 +5,8 @@
  * Gobierno Móvil es un producto de Gobierno en Línea Venezuela.
  * 
  * Copyright (C) 2013 Richard Ricciardelli. All Rights Reserved.
- * Copyright (C) 2013 Ehison Perez. All Rights Reserved.
- * Copyright (C) 2013 Gerardo Perez. All Rights Reserved.
+ * Copyright (C) 2013 Ehison Pérez. All Rights Reserved.
+ * Copyright (C) 2013 Gerardo Pérez. All Rights Reserved.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,13 +25,11 @@
 package ve.gob.cnti.android.modelo;
 
 /**
- * Modelo del tipo Tramites en donde vamos a poder llamar los campos de la base
- * de datos
+ * Modelo del tipo <b>Trámites</b> en se puede llamar los campos de la base de
+ * datos
  * 
- * @author ehisonbp
- * 
+ * @author Ehison Pérez
  */
-
 public class Tramites {
 
 	private String nombre;
@@ -96,5 +94,4 @@ public class Tramites {
 				+ ", informacion=" + informacion + ", identifier=" + identifier
 				+ "]";
 	}
-
 }

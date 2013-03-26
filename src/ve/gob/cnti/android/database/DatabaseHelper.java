@@ -5,8 +5,8 @@
  * Gobierno Móvil es un producto de Gobierno en Línea Venezuela.
  * 
  * Copyright (C) 2013 Richard Ricciardelli. All Rights Reserved.
- * Copyright (C) 2013 Ehison Perez. All Rights Reserved.
- * Copyright (C) 2013 Gerardo Perez. All Rights Reserved.
+ * Copyright (C) 2013 Ehison Pérez. All Rights Reserved.
+ * Copyright (C) 2013 Gerardo Pérez. All Rights Reserved.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,10 +48,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Metodo Parar validar que el archivo se en cuentra en la ruta
-	 * predeterminada
+	 * Método para validar que el archivo se encuentra en la ruta predeterminada
 	 * 
-	 * @return
+	 * @author Ehison Pérez
+	 * @return <code>true</code> si la base de datos existe, <code>false</code>
+	 *         de lo contrario
 	 */
 	private boolean checkDataBase() {
 		File dbFile = new File(DB_PATH + DB_NAME);
@@ -59,9 +60,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Metodo que se utiliza en el Main de la aplicacion para crear la base de
+	 * Método que se utiliza en el Main de la aplicación para crear la base de
 	 * datos dentro de ella
 	 * 
+	 * @author Ehison Pérez
 	 * @throws IOException
 	 */
 	public void createDataBase(Context context) throws IOException {
@@ -78,9 +80,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Metodop que permite copiar el archvivo de la base de datos en la carpeta
-	 * de instalacion del Sistema
+	 * Método que permite copiar el archivo de la base de datos en la carpeta de
+	 * instalación del sistema
 	 * 
+	 * @author Ehison Pérez
 	 * @throws IOException
 	 */
 	public void copyDataBase() throws IOException {
@@ -115,8 +118,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Metodo Para Abrir la base de datos
+	 * Método para abrir la base de datos
 	 * 
+	 * @author Ehison Pérez
 	 * @throws SQLException
 	 */
 	public void openDatabaBase() throws SQLException {
@@ -126,7 +130,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Metodo Utilizado para poder cerra la base de datos
+	 * Método utilizado para poder cerra la base de datos
+	 * 
+	 * @author Ehison Pérez
 	 */
 	public synchronized void close() {
 		if (database != null)
@@ -137,13 +143,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase arg0) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
 		// TODO Auto-generated method stub
-
 	}
 
 }
