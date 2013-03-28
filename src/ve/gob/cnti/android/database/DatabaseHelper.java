@@ -76,7 +76,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				throw new Error(e.getMessage());
 			}
 		}
-
 	}
 
 	/**
