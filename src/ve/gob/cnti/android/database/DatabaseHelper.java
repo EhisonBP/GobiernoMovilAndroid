@@ -30,20 +30,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import ve.gob.cnti.android.info.Constants;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper implements Constants {
 
-	private static String DB_NAME = "GobMovil.sqlite";
-	public static final String DB_PATH = "/data/data/ve.gob.cnti.android/databases/";
-	private SQLiteDatabase database;
+	private SQLiteDatabase dataBase;
 	private final Context context;
 
 	public DatabaseHelper(Context context) {
-		super(context, DB_NAME, null, 1);
+		super(context, DB_NAME, null, DB_VERSION);
 		this.context = context;
 	}
 
@@ -75,6 +76,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			} catch (Exception e) {
 				throw new Error(e.getMessage());
 			}
+		} else {
+			Log.i("DataBase",
+					"Entra en este condicion en caso de que la base de datos se encuetra "
+							+ "registrada y se consultara para actualizarla");
+			deletedDataBase(SearchVersion(), DB_VERSION);
 		}
 	}
 
@@ -124,7 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 */
 	public void openDatabaBase() throws SQLException {
 		String myPath = DB_PATH + DB_NAME;
-		database = SQLiteDatabase.openDatabase(myPath, null,
+		dataBase = SQLiteDatabase.openDatabase(myPath, null,
 				SQLiteDatabase.OPEN_READONLY);
 	}
 
@@ -134,19 +140,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 * @author Ehison Pérez
 	 */
 	public synchronized void close() {
-		if (database != null)
-			database.close();
+		if (dataBase != null)
+			dataBase.close();
 		super.close();
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase arg0) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * Metodo para BUscar la Version de la
+	 * 
+	 * @param version
+	 * @return
+	 */
+	public int SearchVersion() {
+		dataBase = getWritableDatabase();
+		int i = 0;
+		Cursor cursor = dataBase.rawQuery("SELECT version FROM actualizacion",
+				null);
+		if (cursor.moveToFirst()) {
+			do {
+				i = cursor.getInt(0);
+				Log.i("DataBase", "La version de la base de datos es: " + i);
+			} while (cursor.moveToNext());
+		}
+		return i;
+	}
+
+	public void deletedDataBase(int oldVersion, int newVersion) throws IOException {
+		if (oldVersion != newVersion) {
+			Log.i("DataBase", "Eliminando Base de Datos Vieja");
+			context.deleteDatabase(DB_NAME);
+			Log.i("DataBase", "Base de datos Vieja Eliminada");
+			createDataBase(context);
+		}
 	}
 
 }

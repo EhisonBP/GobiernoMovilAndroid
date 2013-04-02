@@ -22,41 +22,14 @@
  * along with this program. If not, see http://www.gnu.org/licenses
  */
 
-package ve.gob.cnti.android.app;
+package ve.gob.cnti.android.info;
 
-import ve.gob.cnti.android.R;
-import ve.gob.cnti.android.database.DatabaseHelper;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
+import android.provider.BaseColumns;
 
-public class Main extends Activity {
+public interface Constants extends BaseColumns {
 
-	public static DatabaseHelper myDataBase;
-
-	/**
-	 * Método que lanza la vista principal de la Actividad Main
-	 * 
-	 */
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-		myDataBase = new DatabaseHelper(this);
-		try {
-			myDataBase.createDataBase(this);
-		} catch (Exception e) {
-			throw new Error("Error al crear la base de datos");
-		}
-	}
-
-	/**
-	 * Crea el menú de opciones
-	 */
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+	public static final String DB_NAME = "GobMovil.sqlite";
+	public static final String DB_PATH = "/data/data/ve.gob.cnti.android/databases/";
+	public static int DB_VERSION = 2;
 
 }
