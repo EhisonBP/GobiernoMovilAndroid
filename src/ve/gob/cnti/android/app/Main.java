@@ -30,6 +30,7 @@ import ve.gob.cnti.android.info.Preferences;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -50,7 +51,8 @@ public class Main extends Activity {
 		try {
 			myDataBase.createDataBase(this);
 		} catch (Exception e) {
-			throw new Error("Error al crear la base de datos");
+			Log.e("DataBase",
+					"Error al crear la base de datos de Gobierno Movil");
 		}
 	}
 
