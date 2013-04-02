@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".info.Preferences" android:label="@string/preferences"></activity>
+        <activity android:name=".info.License" android:theme="@android:style/Theme.Dialog" android:label="@string/license_title">
+        </activity>
     </application>
 
 </manifest>

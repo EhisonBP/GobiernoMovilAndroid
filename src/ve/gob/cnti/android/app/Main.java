@@ -26,9 +26,13 @@ package ve.gob.cnti.android.app;
 
 import ve.gob.cnti.android.R;
 import ve.gob.cnti.android.database.DatabaseHelper;
+import ve.gob.cnti.android.info.Preferences;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class Main extends Activity {
 
@@ -55,8 +59,20 @@ public class Main extends Activity {
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
 		return true;
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.preferences:
+			Intent intent = new Intent(this, Preferences.class);
+			startActivity(intent);
+			break;
+		}
+		return false;
+	}
 }
