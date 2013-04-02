@@ -60,6 +60,7 @@ public class Preferences extends PreferenceActivity implements
 		getPreferenceManager().findPreference(OPT_ABOUT).setTitle(
 				getString(R.string.about_title, getString(R.string.version)));
 		setListener(OPT_LICENSE, License.class);
+		setListener(OPT_ABOUT, About.class);
 
 	}
 
