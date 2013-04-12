@@ -52,7 +52,7 @@ public class Main extends Activity {
 			myDataBase.createDataBase(this);
 		} catch (Exception e) {
 			Log.e("DataBase",
-					"Error al crear la base de datos de Gobierno Movil");
+					"Error al crear la base de datos de Gobierno Móvil");
 		}
 	}
 
