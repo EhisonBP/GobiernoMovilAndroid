@@ -31,5 +31,7 @@ public interface Constants extends BaseColumns {
 	public static final String DB_NAME = "GobMovil.sqlite";
 	public static final String DB_PATH = "/data/data/ve.gob.cnti.android/databases/";
 	public static int DB_VERSION = 2;
+	public static final int VIBRATION_ERROR = 80;
+	public static final int VIBRATION_INTENT = 30;
 
 }

@@ -25,9 +25,11 @@
 package ve.gob.cnti.android.info;
 
 import ve.gob.cnti.android.R;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
@@ -83,4 +85,19 @@ public class Preferences extends PreferenceActivity implements
 		// TODO Auto-generated method stub
 
 	}
+
+	/**
+	 * Obtiene si la preferencia de vibración está activada o no.
+	 * 
+	 * @param context
+	 *            where the method is called
+	 * @return <code>true</code> or <code>false</code>
+	 * 
+	 * @author Richard Ricciardelli
+	 */
+	public static boolean getVibration(Context context) {
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(OPT_VIBRATION, OPT_VIBRATION_DEF);
+	}
+
 }

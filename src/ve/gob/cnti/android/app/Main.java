@@ -26,16 +26,19 @@ package ve.gob.cnti.android.app;
 
 import ve.gob.cnti.android.R;
 import ve.gob.cnti.android.database.DatabaseHelper;
+import ve.gob.cnti.android.info.Constants;
 import ve.gob.cnti.android.info.Preferences;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
-public class Main extends Activity {
+public class Main extends Activity implements Constants {
 
 	public static DatabaseHelper myDataBase;
 
@@ -67,6 +70,9 @@ public class Main extends Activity {
 		return true;
 	}
 
+	/**
+	 * Selecciona opcion del menu segun lo seleccionado.
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -76,5 +82,56 @@ public class Main extends Activity {
 			break;
 		}
 		return false;
+	}
+
+	/**
+	 * Implementando la interfaz para escuchar los clicks del usuario en la
+	 * Activity.
+	 * 
+	 * @param v
+	 *            Vista que recibió el click
+	 * 
+	 * @author Richard Ricciardelli
+	 */
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.directory_main:
+			showActivity(Directory.class, 0);
+			break;
+		case R.id.procedures_main:
+			// showActivity(Procedures.class, 0);
+			break;
+		case R.id.government_main:
+			// showActivity(Government.class, 0);
+			break;
+		}
+	}
+
+	/**
+	 * Muestra la pantalla seleccionada.
+	 * 
+	 * @param c
+	 *            Clase a activar en Activity
+	 * @param item
+	 *            Información que pasa a través de las Activity
+	 * 
+	 * @author Richard Ricciardelli
+	 */
+	public void showActivity(Class<?> c, int item) {
+		if (Preferences.getVibration(getApplicationContext()))
+			setVibration(VIBRATION_INTENT);
+		startActivity(new Intent(this, c).putExtra("item", item));
+	}
+
+	/**
+	 * Coloca el valor de vibración.
+	 * 
+	 * @param ms
+	 *            Milisegundos
+	 * 
+	 * @author Richard Ricciardelli
+	 */
+	public void setVibration(int ms) {
+		((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(ms);
 	}
 }
