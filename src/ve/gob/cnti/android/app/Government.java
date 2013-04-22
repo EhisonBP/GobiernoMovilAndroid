@@ -41,4 +41,13 @@ public class Government extends Activity {
 				getString(R.string.select)));
 	}
 
+	/**
+	 * Metodo para terminar la actividad
+	 * 
+	 * @param button
+	 */
+	public void onMainClick(View button) {
+		finish();
+	}
+
 }
