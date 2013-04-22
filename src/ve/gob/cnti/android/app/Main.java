@@ -124,7 +124,7 @@ public class Main extends Activity implements Constants {
 	}
 
 	/**
-	 * Coloca el valor de vibración.
+	 * Colocar el valor de vibración.
 	 * 
 	 * @param ms
 	 *            Milisegundos

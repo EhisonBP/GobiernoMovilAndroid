@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -28,6 +29,7 @@
         <activity android:name=".info.License" android:theme="@android:style/Theme.Dialog" android:label="@string/license_title">
         </activity>
         <activity android:name=".info.About" android:theme="@android:style/Theme.Dialog" android:label="@string/about"></activity>
+        <activity android:label="@string/directory_title" android:name=".app.Directory"></activity>
     </application>
 
 </manifest>
