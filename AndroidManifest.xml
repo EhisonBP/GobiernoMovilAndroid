@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".info.About" android:theme="@android:style/Theme.Dialog" android:label="@string/about"></activity>
         <activity android:label="@string/directory_title" android:name=".app.Directory"></activity>
+        <activity android:label="@string/government_title" android:name=".app.Government"></activity>
     </application>
 
 </manifest>

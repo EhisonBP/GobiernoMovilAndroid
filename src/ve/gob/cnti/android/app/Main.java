@@ -102,7 +102,7 @@ public class Main extends Activity implements Constants {
 			// showActivity(Procedures.class, 0);
 			break;
 		case R.id.government_main:
-			// showActivity(Government.class, 0);
+			showActivity(Government.class, 0);
 			break;
 		}
 	}
