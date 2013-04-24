@@ -1,7 +1,6 @@
 package ve.gob.cnti.android.app;
 
 import ve.gob.cnti.android.R;
-import ve.gob.cnti.android.info.Constants;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-public class Directory extends Main implements Constants {
+public class Directory extends Main {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,14 +87,5 @@ public class Directory extends Main implements Constants {
 			Show.setDialog(this, agencies);
 			break;
 		}
-	}
-
-	/**
-	 * Metodo para terminar la actividad
-	 * 
-	 * @param button
-	 */
-	public void onMainClick(View button) {
-		finish();
 	}
 }
