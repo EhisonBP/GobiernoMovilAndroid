@@ -29,7 +29,9 @@ import ve.gob.cnti.android.database.DatabaseHelper;
 import ve.gob.cnti.android.info.Constants;
 import ve.gob.cnti.android.info.Preferences;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
@@ -133,5 +135,31 @@ public class Main extends Activity implements Constants {
 	 */
 	public void setVibration(int ms) {
 		((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(ms);
+	}
+
+	/**
+	 * Metodo que lista los nombre de las instituciones segun el ID que tengan
+	 * 
+	 * @param context
+	 *            (La clase que va ejecutar el metodo)
+	 * @param query
+	 *            (Nombre de la tabla para completar el query que hace la
+	 *            consulta a la base de datos)
+	 * 
+	 * @return
+	 */
+	public String[] getListItems(Context context, String query) {
+		openDatabase(context);
+		Cursor cursor = db.rawQuery("SELECT nombre FROM " + query, null);
+		String[] items = new String[cursor.getCount()];
+		short i = 0;
+		if (cursor.moveToFirst())
+			do {
+				items[i] = cursor.getString(0);
+				i++;
+			} while (cursor.moveToNext());
+		cursor.close();
+		closeDatabase();
+		return items;
 	}
 }
